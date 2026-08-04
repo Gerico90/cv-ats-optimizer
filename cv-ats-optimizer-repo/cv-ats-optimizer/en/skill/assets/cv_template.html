@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+  ATS-SAFE RESUME TEMPLATE — instructions for whoever uses it:
+  - Fill in ONLY the text (the {{...}} placeholders and sample content). Do NOT add
+    tables, columns, text boxes, images, icons or skill-level bars.
+  - Keep the single-column layout. Nothing in floats or CSS columns.
+  - Contact details go here in the body, at the top. Never in a real page header/footer.
+  - Section headings use standard names (Summary, Skills, Experience, Education,
+    Certifications). You may delete sections that don't apply.
+  - Convert to PDF with weasyprint to get selectable text:
+      HTML('resume.html').write_pdf('output.pdf')
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: Letter; margin: 1.6cm 1.8cm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Calibri", "Arial", "Helvetica", sans-serif;
+    font-size: 11pt;
+    line-height: 1.35;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  /* Header / name and contact — all in the body, plain text */
+  .name { font-size: 18pt; font-weight: 700; margin: 0 0 2pt 0; }
+  .headline { font-size: 11.5pt; color: #333; margin: 0 0 4pt 0; }
+  .contact { font-size: 10.5pt; color: #222; margin: 0 0 10pt 0; }
+  .contact span { white-space: nowrap; }
+  /* Sections */
+  h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #14425f;               /* a single accent color */
+    border-bottom: 1px solid #14425f;
+    padding-bottom: 2pt;
+    margin: 12pt 0 6pt 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+  }
+  p { margin: 0 0 6pt 0; }
+  /* Experience/education entries — no tables: two lines of text */
+  .entry { margin: 0 0 8pt 0; }
+  .entry .role { font-weight: 700; font-size: 11pt; }
+  .entry .meta { font-size: 10.5pt; color: #333; }
+  ul { margin: 3pt 0 0 0; padding-left: 16pt; }
+  li { margin: 0 0 2pt 0; }
+  /* Skills as grouped plain text, NOT bars or icons */
+  .skills p { margin: 0 0 3pt 0; }
+  .skills b { font-weight: 700; }
+</style>
+</head>
+<body>
+
+  <!-- ===== CONTACT (in the body) ===== -->
+  <div class="name">{{First Last}}</div>
+  <div class="headline">{{Professional title aligned to the posting}}</div>
+  <div class="contact">
+    <span>{{City, Country}}</span> &middot;
+    <span>{{+0 000 000 0000}}</span> &middot;
+    <span>{{you@domain.com}}</span> &middot;
+    <span>linkedin.com/in/{{username}}</span>
+  </div>
+
+  <!-- ===== PROFESSIONAL SUMMARY ===== -->
+  <h2>Professional Summary</h2>
+  <p>{{3–4 lines positioning the candidate for THIS posting, including 2–3 of its
+     main keywords, in the posting's literal wording.}}</p>
+
+  <!-- ===== SKILLS ===== -->
+  <h2>Skills</h2>
+  <div class="skills">
+    <p><b>Technical:</b> {{skill, skill, skill — use the posting's exact keywords}}</p>
+    <p><b>Tools and platforms:</b> {{tool, tool}}</p>
+    <p><b>Certifications:</b> {{Full Name (ACRONYM)}}</p>
+    <p><b>Languages:</b> {{English (native), Spanish (C1)}}</p>
+  </div>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <h2>Experience</h2>
+
+  <div class="entry">
+    <div class="role">{{Job title}} — {{Company}}</div>
+    <div class="meta">{{City}} &middot; {{Jan 2023 – Present}}</div>
+    <ul>
+      <li>{{Action verb + quantified achievement with a metric (%/$/volume).}}</li>
+      <li>{{Another achievement using a literal keyword from the posting.}}</li>
+      <li>{{Another quantified achievement.}}</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="role">{{Job title}} — {{Company}}</div>
+    <div class="meta">{{City}} &middot; {{Mar 2020 – Dec 2022}}</div>
+    <ul>
+      <li>{{Quantified achievement.}}</li>
+      <li>{{Quantified achievement.}}</li>
+    </ul>
+  </div>
+
+  <!-- ===== EDUCATION ===== -->
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="role">{{Degree}} — {{Institution}}</div>
+    <div class="meta">{{City}} &middot; {{2015 – 2019}}</div>
+  </div>
+
+  <!-- ===== CERTIFICATIONS (optional) ===== -->
+  <h2>Certifications</h2>
+  <ul>
+    <li>{{Full Certification Name (ACRONYM)}} — {{Issuer}}, {{2024}}</li>
+  </ul>
+
+</body>
+</html>

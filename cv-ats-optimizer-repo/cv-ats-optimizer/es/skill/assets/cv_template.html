@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+  PLANTILLA CV ATS-SAFE — instrucciones para quien la use:
+  - Rellena SOLO el texto (placeholders {{...}} y contenido de ejemplo). NO añadas
+    tablas, columnas, cuadros de texto, imágenes, iconos ni barras de nivel.
+  - Mantén el layout de una sola columna. No metas nada en float ni en columnas CSS.
+  - El contacto va aquí en el cuerpo, arriba. Nunca en un header/footer real de página.
+  - Encabezados de sección con nombres estándar (Resumen, Habilidades, Experiencia,
+    Educación, Certificaciones). Puedes eliminar secciones que no apliquen.
+  - Convierte a PDF con weasyprint para obtener texto seleccionable:
+      HTML('cv.html').write_pdf('salida.pdf')
+-->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: Letter; margin: 1.6cm 1.8cm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Calibri", "Arial", "Helvetica", sans-serif;
+    font-size: 11pt;
+    line-height: 1.35;
+    color: #1a1a1a;
+    margin: 0;
+  }
+  /* Encabezado / nombre y contacto — todo en el cuerpo, texto plano */
+  .name { font-size: 18pt; font-weight: 700; margin: 0 0 2pt 0; }
+  .headline { font-size: 11.5pt; color: #333; margin: 0 0 4pt 0; }
+  .contact { font-size: 10.5pt; color: #222; margin: 0 0 10pt 0; }
+  .contact span { white-space: nowrap; }
+  /* Secciones */
+  h2 {
+    font-size: 13pt;
+    font-weight: 700;
+    color: #14425f;               /* un solo color de acento */
+    border-bottom: 1px solid #14425f;
+    padding-bottom: 2pt;
+    margin: 12pt 0 6pt 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+  }
+  p { margin: 0 0 6pt 0; }
+  /* Entradas de experiencia/educación — sin tablas: dos líneas de texto */
+  .entry { margin: 0 0 8pt 0; }
+  .entry .role { font-weight: 700; font-size: 11pt; }
+  .entry .meta { font-size: 10.5pt; color: #333; }
+  ul { margin: 3pt 0 0 0; padding-left: 16pt; }
+  li { margin: 0 0 2pt 0; }
+  /* Habilidades como texto plano agrupado, NO barras ni iconos */
+  .skills p { margin: 0 0 3pt 0; }
+  .skills b { font-weight: 700; }
+</style>
+</head>
+<body>
+
+  <!-- ===== CONTACTO (en el cuerpo) ===== -->
+  <div class="name">{{Nombre Apellido}}</div>
+  <div class="headline">{{Título profesional alineado a la vacante}}</div>
+  <div class="contact">
+    <span>{{Ciudad, País}}</span> ·
+    <span>{{+00 000 000 0000}}</span> ·
+    <span>{{correo@dominio.com}}</span> ·
+    <span>linkedin.com/in/{{usuario}}</span>
+  </div>
+
+  <!-- ===== RESUMEN PROFESIONAL ===== -->
+  <h2>Resumen profesional</h2>
+  <p>{{3–4 líneas que posicionan al candidato para ESTA vacante e incluyen 2–3
+     keywords principales de la oferta, con la redacción literal de la oferta.}}</p>
+
+  <!-- ===== HABILIDADES ===== -->
+  <h2>Habilidades</h2>
+  <div class="skills">
+    <p><b>Técnicas:</b> {{skill, skill, skill — usa las keywords exactas de la oferta}}</p>
+    <p><b>Herramientas y plataformas:</b> {{herramienta, herramienta}}</p>
+    <p><b>Certificaciones:</b> {{Nombre Completo (ACRÓNIMO)}}</p>
+    <p><b>Idiomas:</b> {{Español (nativo), Inglés (C1)}}</p>
+  </div>
+
+  <!-- ===== EXPERIENCIA ===== -->
+  <h2>Experiencia</h2>
+
+  <div class="entry">
+    <div class="role">{{Puesto}} — {{Empresa}}</div>
+    <div class="meta">{{Ciudad}} · {{Ene 2023 – Presente}}</div>
+    <ul>
+      <li>{{Verbo de acción + logro cuantificado con métrica (%/$/volumen).}}</li>
+      <li>{{Otro logro con keyword literal de la oferta.}}</li>
+      <li>{{Otro logro cuantificado.}}</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="role">{{Puesto}} — {{Empresa}}</div>
+    <div class="meta">{{Ciudad}} · {{Mar 2020 – Dic 2022}}</div>
+    <ul>
+      <li>{{Logro cuantificado.}}</li>
+      <li>{{Logro cuantificado.}}</li>
+    </ul>
+  </div>
+
+  <!-- ===== EDUCACIÓN ===== -->
+  <h2>Educación</h2>
+  <div class="entry">
+    <div class="role">{{Título}} — {{Institución}}</div>
+    <div class="meta">{{Ciudad}} · {{2015 – 2019}}</div>
+  </div>
+
+  <!-- ===== CERTIFICACIONES (opcional) ===== -->
+  <h2>Certificaciones</h2>
+  <ul>
+    <li>{{Nombre Completo de la Certificación (ACRÓNIMO)}} — {{Emisor}}, {{2024}}</li>
+  </ul>
+
+</body>
+</html>
